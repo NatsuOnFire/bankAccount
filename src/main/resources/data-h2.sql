@@ -1,0 +1,1 @@
+INSERT INTO ACCOUNT(id, money) VALUES(1, 0);

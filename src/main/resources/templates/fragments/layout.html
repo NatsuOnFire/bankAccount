@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="myMoney" type="long"*/-->
+<!-- line above is to workaround: https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:include=":: #pageTitle">Layout Generic Title</title>
+    <link href="http://cdn.jsdelivr.net/webjars/font-awesome/4.7.0/css/font-awesome.min.css"
+          th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"
+          rel="stylesheet" media="screen"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="http://cdn.jsdelivr.net/webjars/materializecss/0.100.1/css/materialize.min.css"
+          th:href="@{/webjars/materializecss/0.100.1/css/materialize.min.css}"
+          rel="stylesheet" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./css/style.css" th:href="@{css/style.css}" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="./DataTables/datatables.min.css"
+          th:href="@{DataTables/datatables.min.css}"/>
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/materializecss/0.100.1/js/materialize.min.js}"></script>
+    <script type="text/javascript" src="./DataTables/datatables.min.js"
+            th:src="@{DataTables/datatables.min.js}"></script>
+    <script type="text/javascript" src="./js/script.js" th:src="@{js/script.js}"></script>
+</head>
+<body>
+<div th:fragment="header">
+    <div class="row">
+        <div class="navbar-fixed">
+            <nav class="grey darken-4">
+                <div class="nav-wrapper">
+                    <a th:href="@{/}" class="brand-logo"><i class="material-icons">account_balance</i>Bank Account</a>
+                    <a href="#" data-activates="mobile-bank-account" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a th:href="@{/deposit}"><i class="material-icons left">trending_up</i>Deposit</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/withdrawal}"><i class="material-icons left">trending_down</i>Withdrawal</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/history}"><i class="material-icons left">history</i>History</a>
+                        </li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-bank-account">
+                        <li>
+                            <a th:href="@{/deposit}"><i class="material-icons left">trending_up</i>Deposit</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/withdrawal}"><i class="material-icons left">trending_down</i>Withdrawal</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/history}"><i class="material-icons left">history</i>History</a>
+                        </li>
+                    </ul>
+                    <span id="currentMoney" class="right" th:if="${myMoney != null}" th:text="${myMoney}"></span>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<footer class="page-footer grey darken-4" th:fragment="footer">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 Florian Laforest
+        </div>
+    </div>
+</footer>
+</body>
+</html>
